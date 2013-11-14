@@ -7,27 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3FC7D36E1834A78C0058A002 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FC7D36D1834A78C0058A002 /* main.cpp */; };
-		3FC7D3701834A78C0058A002 /* cpp_stunnel.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3FC7D36F1834A78C0058A002 /* cpp_stunnel.1 */; };
+		3FC7D36E1834A78C0058A002 /* stunnel-client.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FC7D36D1834A78C0058A002 /* stunnel-client.cpp */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		3FC7D3681834A78C0058A002 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
-			files = (
-				3FC7D3701834A78C0058A002 /* cpp_stunnel.1 in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 1;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
-		3FC7D36A1834A78C0058A002 /* cpp-stunnel */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "cpp-stunnel"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3FC7D36D1834A78C0058A002 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		3FC7D36F1834A78C0058A002 /* cpp_stunnel.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = cpp_stunnel.1; sourceTree = "<group>"; };
+		3FC7D36A1834A78C0058A002 /* stunnel-client */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "stunnel-client"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3FC7D36D1834A78C0058A002 /* stunnel-client.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "stunnel-client.cpp"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +37,7 @@
 		3FC7D36B1834A78C0058A002 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3FC7D36A1834A78C0058A002 /* cpp-stunnel */,
+				3FC7D36A1834A78C0058A002 /* stunnel-client */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -60,8 +45,7 @@
 		3FC7D36C1834A78C0058A002 /* cpp-stunnel */ = {
 			isa = PBXGroup;
 			children = (
-				3FC7D36D1834A78C0058A002 /* main.cpp */,
-				3FC7D36F1834A78C0058A002 /* cpp_stunnel.1 */,
+				3FC7D36D1834A78C0058A002 /* stunnel-client.cpp */,
 			);
 			path = "cpp-stunnel";
 			sourceTree = "<group>";
@@ -69,21 +53,20 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		3FC7D3691834A78C0058A002 /* cpp-stunnel */ = {
+		3FC7D3691834A78C0058A002 /* stunnel-client */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3FC7D3731834A78C0058A002 /* Build configuration list for PBXNativeTarget "cpp-stunnel" */;
+			buildConfigurationList = 3FC7D3731834A78C0058A002 /* Build configuration list for PBXNativeTarget "stunnel-client" */;
 			buildPhases = (
 				3FC7D3661834A78C0058A002 /* Sources */,
 				3FC7D3671834A78C0058A002 /* Frameworks */,
-				3FC7D3681834A78C0058A002 /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "cpp-stunnel";
+			name = "stunnel-client";
 			productName = "cpp-stunnel";
-			productReference = 3FC7D36A1834A78C0058A002 /* cpp-stunnel */;
+			productReference = 3FC7D36A1834A78C0058A002 /* stunnel-client */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -107,7 +90,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				3FC7D3691834A78C0058A002 /* cpp-stunnel */,
+				3FC7D3691834A78C0058A002 /* stunnel-client */,
 			);
 		};
 /* End PBXProject section */
@@ -117,7 +100,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3FC7D36E1834A78C0058A002 /* main.cpp in Sources */,
+				3FC7D36E1834A78C0058A002 /* stunnel-client.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -195,14 +178,38 @@
 		3FC7D3741834A78C0058A002 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/usr/local/include,
+				);
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
+				OTHER_LDFLAGS = (
+					"-lboost_program_options-mt",
+					"-lboost_system-mt",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Debug;
 		};
 		3FC7D3751834A78C0058A002 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/usr/local/include,
+				);
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
+				OTHER_LDFLAGS = (
+					"-lboost_program_options-mt",
+					"-lboost_system-mt",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Release;
 		};
@@ -218,13 +225,14 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3FC7D3731834A78C0058A002 /* Build configuration list for PBXNativeTarget "cpp-stunnel" */ = {
+		3FC7D3731834A78C0058A002 /* Build configuration list for PBXNativeTarget "stunnel-client" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3FC7D3741834A78C0058A002 /* Debug */,
 				3FC7D3751834A78C0058A002 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
